@@ -4,7 +4,6 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import { fanWall, galleryImages, highlights, storyPhases } from '@/data/content';
-import { backgroundAudio, heroMedia, sectionBackgrounds } from '@/data/media';
 
 export default function TributePage() {
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
@@ -47,7 +46,7 @@ export default function TributePage() {
       <audio
         ref={audioRef}
         loop
-        src={backgroundAudio}
+        src="https://cdn.pixabay.com/audio/2022/02/07/audio_57b26545b5.mp3"
       />
 
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
@@ -57,20 +56,13 @@ export default function TributePage() {
           transition={{ duration: 20, repeat: Infinity, repeatType: 'reverse' }}
           className="absolute inset-0"
         >
-          {heroMedia.type === 'video' ? (
-            <video
-              className="h-full w-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              poster={heroMedia.poster}
-            >
-              <source src={heroMedia.src} type="video/mp4" />
-            </video>
-          ) : (
-            <Image src={heroMedia.src} alt="Victor Boniface Hero" fill className="object-cover" priority />
-          )}
+          <Image
+            src="https://source.unsplash.com/2200x1400/?football,athlete,stadium,portrait&sig=77"
+            alt="Victor Boniface Hero"
+            fill
+            className="object-cover"
+            priority
+          />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-background" />
         <div className="absolute inset-0">
@@ -126,7 +118,7 @@ export default function TributePage() {
         </div>
       </section>
 
-      <section className="section-bg relative py-20" style={{ backgroundImage: `url('${sectionBackgrounds.highlights}')` }}>
+      <section className="section-bg relative py-20" style={{ backgroundImage: "url('https://source.unsplash.com/2200x1200/?stadium,crowd,night&sig=90')" }}>
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative mx-auto grid max-w-6xl gap-5 px-5 md:grid-cols-3">
           {highlights.map((h, i) => (
@@ -149,7 +141,7 @@ export default function TributePage() {
         </div>
       </section>
 
-      <section className="section-bg relative py-28" style={{ backgroundImage: `url('${sectionBackgrounds.philanthropy}')` }}>
+      <section className="section-bg relative py-28" style={{ backgroundImage: "url('https://source.unsplash.com/2200x1200/?community,children,soccer&sig=131')" }}>
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/80" />
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1 }} className="relative mx-auto max-w-4xl px-5 text-center">
           <p className="text-sm uppercase tracking-[0.4em] text-gold">WHY HE GIVES</p>
@@ -175,7 +167,7 @@ export default function TributePage() {
       </section>
 
       <section className="relative overflow-hidden py-24 text-center">
-        <Image src={sectionBackgrounds.final} alt="Final section background" fill className="object-cover" loading="lazy" />
+        <Image src="https://source.unsplash.com/2200x1000/?football,lights,night&sig=155" alt="Final section background" fill className="object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative z-10 px-5">
           <h3 className="text-5xl font-black md:text-7xl">WE STAND WITH YOU</h3>

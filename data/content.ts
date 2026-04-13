@@ -1,16 +1,8 @@
-const localVbGallery = Array.from({ length: 10 }).map((_, i) => ({
+export const galleryImages = Array.from({ length: 16 }).map((_, i) => ({
   id: i + 1,
-  src: `/media/vb${i + 1}.jpg`,
-  alt: `Victor Boniface photo vb${i + 1}`
-}));
-
-const fallbackGallery = Array.from({ length: 6 }).map((_, i) => ({
-  id: i + 11,
   src: `https://source.unsplash.com/1600x${1200 + i}/?football,stadium,player&sig=${i + 1}`,
   alt: `Victor Boniface inspired football image ${i + 1}`
 }));
-
-export const galleryImages = [...localVbGallery, ...fallbackGallery];
 
 export const storyPhases = [
   {
